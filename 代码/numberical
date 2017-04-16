@@ -1,0 +1,10 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('F:\umberical_csv.csv')
+data.dropna(inplace=True)
+#plt.show(data.plot(kind = 'box'))
+
+pd.options.display.mpl_style = 'default' # Sets the plotting display theme to ggplot2
+plt.show(data.plot(kind = 'box'))
+#plt.show(data.plot(kind = 'bar'))

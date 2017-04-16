@@ -1,0 +1,40 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+#data_url = "http://archive.ics.uci.edu/ml/machine-learning-databases/horse-colic/horse-colic.data"
+#df = pd.read_csv(data_url)
+
+data = pd.read_csv('F:\data_csv.csv')
+#print data.columns
+#print data[[0]]
+#plt.show(data.plot(kind = 'box'))
+numerical_attribute = [4,5,6,16,19,20,22]
+#data.dropna(inplace=True)
+for i in range(1, 29):
+   if i in numerical_attribute:
+      print str(i) + ":numerical"
+      #'''
+      max = data[[i-1]].max()
+      min = data[[i-1]].min()
+      mean = data[[i-1]].mean()
+      median = data[[i-1]].median()
+      Q1 = data[[i-1]].quantile(0.25)
+      Q3 = data[[i-1]].quantile(0.75)
+      missing = 300-data[[i-1]].dropna().size
+      print "max:"+str(float(max))+",min:"+str(float(min))+",mean:"+str(float(mean))
+      print "median:" + str(float(median)) + ",Q1:" + str(float(Q1)) + ",Q3:" + str(float(Q3))+ ",missing:" + str(int(missing))
+      #calculate mode
+      #mode = data[str(i)].mode()
+      #print mode
+      #test = float(mode)
+      #print str(test)
+      #fill with mode
+      #data[str(i)].fillna(test,inplace=True)
+      print data[[i-1]]
+      plt.show(data[[i - 1]].plot(kind='bar'))
+#'''
+   else:
+      print str(i) + ":non-numer"
+      #print data[str(i)].value_counts()
+      # print data[[i - 1]].value_counts()
+
+
